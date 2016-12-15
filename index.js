@@ -21,6 +21,8 @@ module.exports = {
           var data = $(this);
           datas.push({text: data.text()});
         })
+        console.log(datas);
+        return datas;
       }
       return datas;
     });
