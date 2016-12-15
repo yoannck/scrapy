@@ -20,7 +20,7 @@ module.exports = {
            var $ = cheerio.load(html);
            $(filter).each(function() {
              var data = $(this);
-             datas.push({text: data.text()});
+             datas.push({text: data.text().replace(/ /g,'')});
            })
            success(datas);
          } else {
