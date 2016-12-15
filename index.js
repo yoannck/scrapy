@@ -1,4 +1,3 @@
-
 var request = require('request');
 var cheerio = require('cheerio');
 
@@ -7,42 +6,23 @@ var cheerio = require('cheerio');
  */
 module.exports = {
   /**
-   * Get data from a URL with a parameter filter
+   * Get datas from a URL with a parameter filter
    *
    * @param  {String} url
    * @param  {String} filter
-   * @return {String}
+   * @return {Array}
    */
   get: function(url, filter) {
-
-    /* Magic HERE */
-
     request(url, function(error, response, html) {
+      var datas = [];
       if (!error) {
         var $ = cheerio.load(html);
-        var name, release, rating;
-        var json = { name : ""};
-
-        filter = '.title';
-
         $(filter).each(function() {
-
           var data = $(this);
-
-          console.log(data.text());
-
-          // title = data.children().first().text();
-          // name = data.text();
-          // json.name = name;
-
+          datas.push({text: data.text()});
         })
-        res.send('OK LET CHECK IT !');
-      } else {
-        res.send('OHHHHH ERROR !');
       }
+      return datas;
     });
-
-    return String(url);
   }
-
 };
