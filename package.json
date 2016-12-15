@@ -1,0 +1,24 @@
+{
+  "name": "scrapy",
+  "version": "0.0.0",
+  "description": "web scraper for nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yoannck/scrapy.git"
+  },
+  "keywords": [
+    "web",
+    "scraper",
+    "nodejs"
+  ],
+  "author": "Yoann Chane Kive <yoannck@gmail.com> (http://yoannck.com)",
+  "dependencies" : {
+    "request"    : "latest",
+    "cheerio"    : "latest"
+  }
+  "license": "ISC"
+}
