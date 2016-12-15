@@ -10,21 +10,23 @@ module.exports = {
    *
    * @param  {String} url
    * @param  {String} filter
-   * @return {Array}
+   * @return {Promise}
    */
-  get: function(url, filter) {
-    request(url, function(error, response, html) {
-      var datas = [];
-      if (!error) {
-        var $ = cheerio.load(html);
-        $(filter).each(function() {
-          var data = $(this);
-          datas.push({text: data.text()});
-        })
-        console.log(datas);
-        return datas;
-      }
-      return datas;
-    });
-  }
+   get: function(url, filter) {
+     return new Promise(function (success, reject){
+       request(url, function(error, response, html) {
+         if (!error) {
+           var datas = [];
+           var $ = cheerio.load(html);
+           $(filter).each(function() {
+             var data = $(this);
+             datas.push({text: data.text()});
+           })
+           success(datas);
+         } else {
+           reject(err);
+         }
+       });
+     });
+   }
 };
