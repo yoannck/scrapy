@@ -13,7 +13,7 @@ module.exports = {
     $(filter).each(function() {
       var data = $(this);
       datas.push({text: data.text().replace(/\r?\n|\r/g,'').trim()});
-    })
+    });
     return datas;
   }
   /**
@@ -33,7 +33,7 @@ module.exports = {
          }
        });
      });
-   };
+   }
    /**
     * Get datas from a URL (Authentification Required) with a parameter filter
     *
