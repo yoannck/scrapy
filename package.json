@@ -15,9 +15,10 @@
     "scraper",
     "nodejs"
   ],
-  "dependencies" : {
-    "request"    : "latest",
-    "cheerio"    : "latest"
+  "dependencies": {
+    "cheerio": "latest",
+    "request": "latest",
+    "zombie": "^5.0.5"
   },
   "author": "Yoann Chane Kive <yoannck@gmail.com> (http://yoannck.com)",
   "license": "ISC"
