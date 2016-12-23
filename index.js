@@ -1,6 +1,6 @@
 var request = require('request');
 var cheerio = require('cheerio');
-var browser = require('zombie');
+var Browser = require('zombie');
 
 /**
  * Web Scraper
@@ -37,7 +37,6 @@ module.exports = {
    /**
     * Get datas from a URL (Authentification Required) with a parameter filter
     *
-    * @param  {Object} parameters
     * @return {Promise}
     */
    getWithAuthentification(parameters) {
