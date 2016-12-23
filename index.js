@@ -37,9 +37,10 @@ module.exports = {
    /**
     * Get datas from a URL (Authentification Required) with a parameter filter
     *
+    * @param {Object} parameters
     * @return {Promise}
     */
-   getWithAuthentification(parameters) {
+   getWithAuthentification: function(parameters) {
      return new Promise(function (success, reject){
        var browser = new Browser();
        browser.visit(parameters.login.url, function(){
