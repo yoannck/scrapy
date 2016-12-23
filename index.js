@@ -2,20 +2,21 @@ var request = require('request');
 var cheerio = require('cheerio');
 var Browser = require('zombie');
 
+var extract = function(html, filter) {
+  var datas = [];
+  var $ = cheerio.load(html);
+  $(filter).each(function() {
+    var data = $(this);
+    datas.push({text: data.text().replace(/\r?\n|\r/g,'').trim()});
+  });
+  return datas;
+};
+
 /**
  * Web Scraper
  * Author : Yoann Chane Kive
  */
 module.exports = {
-  extract: function(html, filter) {
-    var datas = [];
-    var $ = cheerio.load(html);
-    $(filter).each(function() {
-      var data = $(this);
-      datas.push({text: data.text().replace(/\r?\n|\r/g,'').trim()});
-    });
-    return datas;
-  },
   /**
    * Get datas from a URL with a parameter filter
    *
