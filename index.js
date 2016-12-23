@@ -15,7 +15,7 @@ module.exports = {
       datas.push({text: data.text().replace(/\r?\n|\r/g,'').trim()});
     });
     return datas;
-  }
+  },
   /**
    * Get datas from a URL with a parameter filter
    *
@@ -33,7 +33,7 @@ module.exports = {
          }
        });
      });
-   }
+   },
    /**
     * Get datas from a URL (Authentification Required) with a parameter filter
     *
