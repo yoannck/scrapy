@@ -56,5 +56,18 @@ module.exports = {
            });
        });
      });
+   },
+
+   searchAndGet: function(parameters) {
+     return new Promise(function (success, reject){
+       var browser = new Browser();
+       browser.visit(parameters.search.url, function(){
+         browser.fill(parameters.search.selector, parameters.search.value)
+           .pressButton(parameters.search.selectorSubmit, function() {
+               var datas = [];
+               success(extract(browser.html(), parameters.get.filter));
+           });
+       });
+     });
    }
 };
